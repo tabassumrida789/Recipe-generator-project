@@ -1,0 +1,237 @@
+.section {
+  display: grid;
+  gap: 12px;
+  min-width: 0;
+  margin-top: 14px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.card {
+  min-width: 0;
+  padding: 15px;
+  border: 1px solid #e8ecdf;
+  border-radius: 14px;
+  background: #f7f8f3;
+  color: #28332c;
+}
+
+.card h3 {
+  margin: 0 0 10px;
+  color: #667166;
+  font-size: 9px;
+  font-weight: 750;
+  letter-spacing: 1.1px;
+  line-height: 1.5;
+}
+
+.rows {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+}
+
+.rows > div,
+.costGrid > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-width: 0;
+  padding: 8px 10px;
+  border: 1px solid #e9ecdf;
+  border-radius: 9px;
+  background: #fff;
+}
+
+.rows dt,
+.rows dd {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.rows dt {
+  color: #69746a;
+}
+
+.rows dd {
+  color: #28332c;
+  font-weight: 650;
+  text-align: right;
+}
+
+.difficulty {
+  display: block;
+  color: #26352a;
+  font-size: 20px;
+  line-height: 1.25;
+}
+
+.card p {
+  margin: 8px 0 0;
+  color: #69746a;
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+.card .note {
+  margin-top: 0;
+  font-size: 10px;
+}
+
+.value {
+  color: #344238 !important;
+}
+
+.list {
+  display: grid;
+  gap: 6px;
+  margin: 8px 0 0;
+  padding-left: 18px;
+  color: #354238;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.fridgeCard {
+  background: #f2f5ec;
+}
+
+.matchList {
+  display: grid;
+  gap: 7px;
+  margin: 10px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.matchList li {
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+}
+
+.matchList li > span:first-child {
+  color: #477b50;
+  font-weight: 700;
+}
+
+.matchList .missing > span:first-child,
+.matchList .missing small {
+  color: #a86b4e;
+}
+
+.matchList small {
+  color: #6c796c;
+  font-size: 10px;
+}
+
+.matchSummary {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  color: #536153;
+  font-size: 10px;
+}
+
+.progress {
+  height: 6px;
+  margin-top: 7px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #e4e9dd;
+}
+
+.progress span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: #4b8055;
+  transition: width 180ms ease;
+}
+
+.costGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.costGrid > div {
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.costGrid small {
+  color: #69746a;
+  font-size: 10px;
+}
+
+.costGrid b {
+  font-size: 13px;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 0;
+  list-style: none;
+}
+
+.chips li {
+  padding: 6px 9px;
+  border: 1px solid #e4e8dc;
+  border-radius: 999px;
+  background: #fff;
+}
+
+.substitutions {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+}
+
+.substitutions > div {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+}
+
+.substitutions dt {
+  color: #69746a;
+}
+
+.substitutions dd {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 0;
+  color: #344238;
+}
+
+@media (max-width: 640px) {
+  .grid,
+  .costGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .card {
+    padding: 13px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .progress span {
+    transition: none;
+  }
+}

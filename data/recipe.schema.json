@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "FridgeChef local recipe import",
+  "oneOf": [
+  {"type":"array", "items":{"$ref":"#/$defs/recipe"}},
+  {"type":"object", "required":["recipes"], "properties":{"recipes":{"type":"array", "items":{"$ref":"#/$defs/recipe"}}}}
+  ],
+  "$defs": {"recipe": {
+  "type": "object",
+  "required": ["title", "cuisine", "category", "description", "ingredients", "steps", "minutes", "servings"],
+  "properties": {
+    "id": {"type": "string", "description": "Stable unique identifier; generated from title if omitted."},
+    "title": {"type": "string", "minLength": 1},
+    "cuisine": {"type": "string", "minLength": 1},
+    "region": {"type": "string"},
+    "category": {"type": "string", "minLength": 1},
+    "mealType": {"type": "string"},
+    "description": {"type": "string", "minLength": 1},
+    "image": {"type": "string"},
+    "minutes": {"type": "number", "minimum": 1},
+    "prepMinutes": {"type": "number", "minimum": 0},
+    "cookMinutes": {"type": "number", "minimum": 0},
+    "totalTime": {"type": "number", "minimum": 1},
+    "servings": {"type": "number", "minimum": 1},
+    "difficulty": {"enum": ["Easy", "Medium", "Hard"]},
+    "tags": {"type": "array", "items": {"type": "string"}},
+    "ingredients": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "ingredientDetails": {"type": "array", "items": {"type": "object", "required": ["name"], "properties": {"name": {"type": "string"}, "quantity": {"type": ["number", "null"]}, "unit": {"type": "string"}, "substitution": {"type": ["string", "null"]}}}},
+    "steps": {"type": "array", "minItems": 1, "items": {"oneOf": [{"type": "string"}, {"type": "object", "required": ["title", "description"], "properties": {"title": {"type": "string"}, "description": {"type": "string"}, "duration": {"type": "number"}, "durationMinutes": {"type": "number"}, "ingredients": {"type": "array", "items": {"type": "string"}}}}]}},
+    "preparationSteps": {"type": "array", "items": {"type": "object", "required": ["title", "description", "durationMinutes"], "properties": {"title": {"type": "string"}, "description": {"type": "string"}, "durationMinutes": {"type": "number"}, "ingredients": {"type": "array", "items": {"type": "string"}}}}},
+    "nutrition": {"type": ["object", "null"]},
+    "videoUrl": {"type": "string"}
+  }
+  }}
+}
